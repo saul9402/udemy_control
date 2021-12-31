@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "adminpro": {
+    "udemy_control": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/adminpro",
+            "outputPath": "dist/udemy_control",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -90,18 +90,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "adminpro:build"
+            "browserTarget": "udemy_control:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "adminpro:build:production"
+              "browserTarget": "udemy_control:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "adminpro:build"
+            "browserTarget": "udemy_control:build"
           }
         },
         "test": {
@@ -138,18 +138,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "adminpro:serve"
+            "devServerTarget": "udemy_control:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "adminpro:serve:production"
+              "devServerTarget": "udemy_control:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "adminpro",
+  "defaultProject": "udemy_control",
   "cli": {
     "analytics": "4d71ba47-7fac-41c3-b7ea-403612fb3363"
   }

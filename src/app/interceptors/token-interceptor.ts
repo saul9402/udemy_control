@@ -1,7 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { UserService } from "../services/user.service";
 import { GlobalPropertiesConstants } from "../shared/constants/GlobalPropertiesConstants";
 
 /**
@@ -16,7 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
         const token = localStorage.getItem(GlobalPropertiesConstants.PROPERTY_TOKEN) || '';
         const modifiedRequest = token && token !== '' ?
             req.clone({
-                headers: req.headers.set(GlobalPropertiesConstants.AUTH_HEADER, `${GlobalPropertiesConstants.BEARER} ${token}`),
+                headers: req.headers.set(GlobalPropertiesConstants.AUTH_HEADER, `${GlobalPropertiesConstants.AUTH_BEARER_VALUE} ${token}`),
             }) : req.clone();
         return next.handle(modifiedRequest);
     }

@@ -1,5 +1,5 @@
-export interface LoginForm {
-    email: string;
+export class LoginForm {
+    username: string;
     password: string;
-    rememberMe: boolean;
+    grant_type: string = "password";
 }
