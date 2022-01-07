@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { GlobalPropertiesConstants } from 'src/app/shared/constants/GlobalPropertiesConstants';
 import Swal from 'sweetalert2';
 
 
@@ -23,13 +24,12 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
+    localStorage.removeItem(GlobalPropertiesConstants.PROPERTY_TOKEN);
   }
 
   login() {
     this.userService.login(this.loginForm.value)
-      .subscribe(resp => {
-        this.router.navigateByUrl('/');
-      }, err => {
+      .subscribe(resp => { }, err => {
         Swal.fire('Error', err, 'error');
       })
   }

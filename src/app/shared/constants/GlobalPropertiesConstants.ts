@@ -1,5 +1,5 @@
 export class GlobalPropertiesConstants {
-    
+
     public static LS_THEME: string = "theme";
     public static PROPERTY_HREF: string = "href";
     public static PROPERTY_TOKEN: string = "token";
@@ -16,4 +16,17 @@ export class GlobalPropertiesConstants {
     public static SAK: string = "$2a$10$3sbj9nu8uw6vb6M2FLZht.VQK6XcmTu4.jmanAaAJGBQP/bhUsHOS";
 
 
+    /**
+     * https://www.codegrepper.com/code-examples/javascript/javascript+check+if+string+is+json+parsable
+     * @param str 
+     * @returns 
+     */
+    static isJsonParseable(str: string) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
 }

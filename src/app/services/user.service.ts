@@ -7,6 +7,8 @@ import { RegisterForm } from '../interfaces/register-form.interface';
 import { tap } from "rxjs/operators";
 import { GlobalPropertiesConstants } from '../shared/constants/GlobalPropertiesConstants';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Token } from '../models/token.model';
 
 const base_url = environment.base_url;
 
@@ -16,18 +18,25 @@ const base_url = environment.base_url;
 export class UserService {
 
   readonly BASE_URL_AUTHENTICATION: string = `${base_url}/authentication`;
+  readonly BASE_URL_USERS: string = `${base_url}/users/users`;
 
   constructor(private http: HttpClient, private router: Router) { }
 
 
-  validateToken(): boolean {
-    const token = localStorage.getItem(GlobalPropertiesConstants.PROPERTY_TOKEN) || '';
-
-    /**
-     * Aqui validaria el token contra el backend para verificar que exista.
-     */
-    //    this.http.get 
-    return token && token != '' ? true : false;
+  /**
+   * https://www.instintoprogramador.com.mx/2020/10/javascript-async-await-con-angular-78.html
+   * https://www.telerik.com/blogs/angular-basic-what-are-promises-async-await-why-should-you-care
+   * @returns 
+   */
+  async validateToken() {
+    const isTokenValid = await this.http.get(`${this.BASE_URL_USERS}/validate-token`)
+      .toPromise()
+      .catch(m => {
+        localStorage.removeItem(GlobalPropertiesConstants.PROPERTY_TOKEN);
+        this.router.navigate(["/login"]);
+        Swal.fire('Error con el token', m, 'error');
+      });
+    return isTokenValid;
   }
 
   createUser(formData: RegisterForm) {
@@ -39,8 +48,10 @@ export class UserService {
     const payload = this.getValuesAsURLSearchParams(formData);
     let headers = this.getAuthenticationHeaders();
     return this.http.post(`${this.BASE_URL_AUTHENTICATION}/oauth/token`, payload.toString(), { headers })
-      .pipe(tap((resp: any) => {
-        localStorage.setItem(GlobalPropertiesConstants.PROPERTY_TOKEN, resp)
+      .pipe(tap((resp: Token) => {
+        localStorage.setItem(GlobalPropertiesConstants.PROPERTY_TOKEN, JSON.stringify(resp));
+        this.router.navigateByUrl('/');
+        //TODO: Agregar alguna funcion que cuando termine el tiempo del token avise al usuario o bien aga un refresh del token
       })
       );
   }
@@ -68,7 +79,7 @@ export class UserService {
     payload.set(GlobalPropertiesConstants.GRANT_TYPE_HTTP_PARAM, GlobalPropertiesConstants.GRANT_TYPE_HTTP_PARAM_VALUE);
     return payload;
   }
-  
+
   /**
    * Es posible hacer el envio de parametros con HttpParams o con URLSearchParams pero 
    * si se hace con este ultimo se debe agregar el toString() al
