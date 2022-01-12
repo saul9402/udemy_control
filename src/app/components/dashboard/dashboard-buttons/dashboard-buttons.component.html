@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <button [id]="GlobalHTMLAndCSSConstants.ID_SINGLE_COURSES_BUTTON" type="button" class="btn btn-primary mr-2"
+                (click)="open($event)">
+                <!-- <i class="mdi mdi-book-plus"></i> -->
+                <i class="mdi mdi-plus-circle-outline"></i>
+                Agregar curso
+            </button>
+            <button [id]="GlobalHTMLAndCSSConstants.ID_MULTIPLE_COURSES_BUTTON" type="button" class="btn btn-primary"
+                (click)="open($event)">
+                <i class="mdi mdi-plus-circle-multiple-outline"></i>
+                Agregar cursos (Batch)
+            </button>
+        </div>
+    </div>
+</div>

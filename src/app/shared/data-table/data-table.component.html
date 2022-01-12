@@ -1,0 +1,6 @@
+<ngx-datatable class="material" [rows]="rows" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+    rowHeight="auto" [externalPaging]="true" [count]="page.totalElements" [offset]="page.pageNumber" [limit]="page.size"
+    (page)="setPage($event)" [columns]="columns">
+</ngx-datatable>
+
+<!-- https://mercyjemosop.medium.com/ngx-datatable-angular-e209ec769485 -->

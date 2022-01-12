@@ -1,4 +1,4 @@
-export class GlobalCSSAtributtesConstants{
+export class GlobalHTMLAndCSSConstants{
 
     public static DEFAULT_THEME: string = "default-dark";
 
@@ -8,5 +8,9 @@ export class GlobalCSSAtributtesConstants{
     public static CSS_EXTENSION: string = ".css";
     public static ATTRIBUTE_DATA_THEME: string = "data-theme";
     public static PATH_ASSETS_CSS_COLORS: string = "./assets/css/colors";
+    
+    public static ID_SINGLE_COURSES_BUTTON: string = "addSingleCourses";
+    public static ID_MULTIPLE_COURSES_BUTTON: string = "addMultipleCourses";
+
 
 }

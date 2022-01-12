@@ -6,21 +6,25 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-
-
-
+import { DataTableComponent } from './data-table/data-table.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbsComponent],
+    BreadcrumbsComponent,
+    DataTableComponent
+  ],
   exports: [
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbsComponent],
+    BreadcrumbsComponent,
+    DataTableComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgxDatatableModule
   ]
 })
 export class SharedModule { }

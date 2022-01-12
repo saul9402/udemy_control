@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GlobalCSSAtributtesConstants } from '../shared/constants/GlobalCSSAtributtesConstants';
+import { GlobalHTMLAndCSSConstants } from '../shared/constants/GlobalCSSAtributtesConstants';
 import { GlobalPropertiesConstants } from '../shared/constants/GlobalPropertiesConstants';
 
 @Injectable({
@@ -7,8 +7,8 @@ import { GlobalPropertiesConstants } from '../shared/constants/GlobalPropertiesC
 })
 export class SettingsService {
 
-  private linkTheme = document.querySelector(GlobalCSSAtributtesConstants.ID_THEME);
-  private readonly defaultTheme = `${GlobalCSSAtributtesConstants.PATH_ASSETS_CSS_COLORS}/${GlobalCSSAtributtesConstants.DEFAULT_THEME}${GlobalCSSAtributtesConstants.CSS_EXTENSION}`;
+  private linkTheme = document.querySelector(GlobalHTMLAndCSSConstants.ID_THEME);
+  private readonly defaultTheme = `${GlobalHTMLAndCSSConstants.PATH_ASSETS_CSS_COLORS}/${GlobalHTMLAndCSSConstants.DEFAULT_THEME}${GlobalHTMLAndCSSConstants.CSS_EXTENSION}`;
 
   constructor() {
     const themeFromLocalStorage = localStorage.getItem(GlobalPropertiesConstants.LS_THEME);
@@ -17,26 +17,26 @@ export class SettingsService {
   }
 
   changeTheme(theme: string) {
-    const url = `${GlobalCSSAtributtesConstants.PATH_ASSETS_CSS_COLORS}/${theme}${GlobalCSSAtributtesConstants.CSS_EXTENSION}`;
+    const url = `${GlobalHTMLAndCSSConstants.PATH_ASSETS_CSS_COLORS}/${theme}${GlobalHTMLAndCSSConstants.CSS_EXTENSION}`;
     this.linkTheme.setAttribute(GlobalPropertiesConstants.PROPERTY_HREF, url);
     localStorage.setItem(GlobalPropertiesConstants.LS_THEME, url);
     this.checkCurrentTheme();
   }
 
   checkCurrentTheme() {
-    const links: NodeListOf<Element> = document.querySelectorAll(GlobalCSSAtributtesConstants.SELECTOR_CLASS_SELECTOR);
+    const links: NodeListOf<Element> = document.querySelectorAll(GlobalHTMLAndCSSConstants.SELECTOR_CLASS_SELECTOR);
 
     links.forEach(element => {
-      element.classList.remove(GlobalCSSAtributtesConstants.CLASS_WORKING);
+      element.classList.remove(GlobalHTMLAndCSSConstants.CLASS_WORKING);
 
-      const btnTheme = element.getAttribute(GlobalCSSAtributtesConstants.ATTRIBUTE_DATA_THEME);
+      const btnTheme = element.getAttribute(GlobalHTMLAndCSSConstants.ATTRIBUTE_DATA_THEME);
 
-      const btnThemeUrl = `${GlobalCSSAtributtesConstants.PATH_ASSETS_CSS_COLORS}/${btnTheme}${GlobalCSSAtributtesConstants.CSS_EXTENSION}`;
+      const btnThemeUrl = `${GlobalHTMLAndCSSConstants.PATH_ASSETS_CSS_COLORS}/${btnTheme}${GlobalHTMLAndCSSConstants.CSS_EXTENSION}`;
 
       const currentTheme = this.linkTheme.getAttribute(GlobalPropertiesConstants.PROPERTY_HREF);
 
       if (btnThemeUrl === currentTheme) {
-        element.classList.add(GlobalCSSAtributtesConstants.CLASS_WORKING);
+        element.classList.add(GlobalHTMLAndCSSConstants.CLASS_WORKING);
       }
     });
 
