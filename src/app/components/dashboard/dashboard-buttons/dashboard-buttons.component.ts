@@ -20,15 +20,10 @@ export class DashboardButtonsComponent implements OnInit {
   }
 
   open(event) {
-    let target = event.target || event.srcElement || event.currentTarget;
-    let idValue = target.attributes.id.nodeValue;
-    let component: any;
-    ;
-    if (idValue == GlobalHTMLAndCSSConstants.ID_MULTIPLE_COURSES_BUTTON) {
-      component = AddMultipleCoursesComponent;
-    } else {
-      component = AddSingleCourseComponent;
-    }
+    /**
+     * https://stackoverflow.com/questions/36006894/angular2-get-clicked-element-id
+     */
+    let component: any = this.getComponentToOpen(event);
     /**
      * https://ng-bootstrap.github.io/#/getting-started
      * https://ng-bootstrap.github.io/#/components/modal/api
@@ -43,4 +38,16 @@ export class DashboardButtonsComponent implements OnInit {
       });
   }
 
+
+  private getComponentToOpen(event: any) {
+    let target = event.target || event.srcElement || event.currentTarget;
+    let idValue = target.attributes.id.nodeValue;
+    let component: any;
+    if (idValue == GlobalHTMLAndCSSConstants.ID_MULTIPLE_COURSES_BUTTON) {
+      component = AddMultipleCoursesComponent;
+    } else {
+      component = AddSingleCourseComponent;
+    }
+    return component;
+  }
 }
