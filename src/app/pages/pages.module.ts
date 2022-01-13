@@ -15,7 +15,8 @@ import { PagesRoutingModule } from './pages-routing';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { DataTableComponent } from '../shared/data-table/data-table.component';
+import { PersonsComponent } from './persons/persons.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 
@@ -27,7 +28,9 @@ import { DataTableComponent } from '../shared/data-table/data-table.component';
     PagesComponent,
     AccountSettingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    PersonsComponent,
+    AccountsComponent
   ],
   exports: [
     DashboardComponent,

@@ -43,7 +43,7 @@
                             </span>
                         </span>
                     </a>
-                    <ul aria-expanded="true" class="show">
+                    <ul aria-expanded="true" class="show" (click)="collapse($event)">
                     <!-- <ul aria-expanded="true" class="collapsed"> -->
                         <li *ngFor="let subMenuItem of menuItem.submenu">
                             <a [routerLink]="subMenuItem.url" routerLinkActive="active"

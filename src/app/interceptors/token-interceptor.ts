@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Token } from "../models/token.model";
+import { GlobalMethods } from "../shared/constants/GlobalMethods";
 import { GlobalPropertiesConstants } from "../shared/constants/GlobalPropertiesConstants";
 
 /**
@@ -23,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
          */
         if (this.router.url == "/login" && (!tokenFromLocalStorage || tokenFromLocalStorage == '')) {
             modifiedRequest = req.clone();
-        } else if (GlobalPropertiesConstants.isJsonParseable(tokenFromLocalStorage)) {
+        } else if (GlobalMethods.isJsonParseable(tokenFromLocalStorage)) {
             token = JSON.parse(tokenFromLocalStorage);
             modifiedRequest = token && token.access_token !== '' ?
                 req.clone({

@@ -38,8 +38,8 @@ export class DashboardButtonsComponent implements OnInit {
       });
   }
 
-
   private getComponentToOpen(event: any) {
+    GlobalPropertiesConstants
     let target = event.target || event.srcElement || event.currentTarget;
     let idValue = target.attributes.id.nodeValue;
     let component: any;

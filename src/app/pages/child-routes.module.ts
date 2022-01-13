@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Graficas1Component } from './graficas1/graficas1.component';
-import { RouterModule, Routes } from '@angular/router';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { PersonsComponent } from './persons/persons.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const childRoutes: Routes = [
   { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
-  { path: 'progress', component: ProgressComponent, canActivate: [AuthGuard], data: { title: 'Progress' } },
-  { path: 'graficas1', component: Graficas1Component, data: { title: 'Gráfica 1' } },
-  { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Ajustes' } },
-  { path: 'promesas', component: PromesasComponent, data: { title: 'Promesas' } },
-  { path: 'rxjs', component: RxjsComponent, data: { title: 'RXJS' } },
+  { path: 'personas', component: PersonsComponent, canActivate: [AuthGuard], data: { title: 'Personas' } },
+  { path: 'cuentas', component: AccountsComponent, canActivate: [AuthGuard], data: { title: 'Cursos' } },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ]
 

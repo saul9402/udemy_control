@@ -8,13 +8,18 @@ import { SidebarService } from 'src/app/services/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
+
   menuItems: any[];
   constructor(private sidebarService: SidebarService) {
     this.menuItems = sidebarService.menu;
-    
+
   }
 
   ngOnInit() {
+  }
+  collapse(event) {
+    //TODO: AGREGAR CODIGO PARA QUITAR Y AGREGAR CLASES SHOW Y COLLAPSE.
+
   }
 
 }

@@ -15,18 +15,13 @@ export class GlobalPropertiesConstants {
     public static CLIENT_ID: string = "client-id";
     public static SAK: string = "$2a$10$3sbj9nu8uw6vb6M2FLZht.VQK6XcmTu4.jmanAaAJGBQP/bhUsHOS";
 
-
     /**
-     * https://www.codegrepper.com/code-examples/javascript/javascript+check+if+string+is+json+parsable
-     * @param str 
-     * @returns 
+     * https://ng-bootstrap.github.io/#/components/modal/examples#options
      */
-    static isJsonParseable(str: string) {
-        try {
-            JSON.parse(str);
-        } catch (e) {
-            return false;
-        }
-        return true;
-    }
+    static MODAL_SIZE_SM: string = "sm";
+    static MODAL_SIZE_LG: string = "lg";
+    static MODAL_SIZE_XL: string = "xl";
+
+
+
 }

@@ -7,6 +7,8 @@ import { ChartsModule } from 'ng2-charts';
 import { AddSingleCourseComponent } from './dashboard/forms/add-single-course/add-single-course.component';
 import { AddMultipleCoursesComponent } from './dashboard/forms/add-multiple-courses/add-multiple-courses.component';
 import { DashboardButtonsComponent } from './dashboard/dashboard-buttons/dashboard-buttons.component';
+import { PersonsButtonsComponent } from './persons/persons-buttons/persons-buttons.component';
+import { PersonFormComponent } from './persons/forms/person-form/person-form.component';
 
 
 
@@ -16,12 +18,15 @@ import { DashboardButtonsComponent } from './dashboard/dashboard-buttons/dashboa
     DonaComponent,
     DashboardButtonsComponent,
     AddSingleCourseComponent,
-    AddMultipleCoursesComponent
+    AddMultipleCoursesComponent,
+    PersonsButtonsComponent,
+    PersonFormComponent
   ],
   exports: [
     IncrementadorComponent,
     DonaComponent,
-    DashboardButtonsComponent
+    DashboardButtonsComponent,
+    PersonsButtonsComponent
   ],
   imports: [
     CommonModule,
