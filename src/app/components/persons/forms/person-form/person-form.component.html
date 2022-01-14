@@ -2,60 +2,65 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="" class="form-horizontal">
+                <form action="" class="form-horizontal" [formGroup]="personForm" (ngSubmit)="onSubmit()">
                     <div class="card-body">
                         <h4 class="card-title">
                             Alta de Persona
                         </h4>
+                        <app-input-text
+                        *ngIf="personForm"
+                         [form]="personForm"
+                         [controlName]="GlobalPropertiesConstants.FORM_CONTROL_FIRST_NAME"
+                         [label]="'Primer nombre'"
+                         [isRequired]="true">
+                        </app-input-text>
+
                         <div class="mb-3 row">
-                            <label for="" class="col-sm-3 text-end control-label col-form-label">
-                                Primer Nombre
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="validationServer03" class="col-sm-3 text-end control-label col-form-label">
+                            <label [for]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_NAME"
+                                class="col-sm-3 text-end control-label col-form-label">
                                 Segundo Nombre
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" id="validationServer03" class="form-control"
-                                    aria-describedby="validationServer03Feedback">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                    Looks bad!
-                                </div>
+                                <input type="text" class="form-control"
+                                    [id]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_NAME"
+                                    [formControlName]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_NAME">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="" class="col-sm-3 text-end control-label col-form-label">
+                            <label [for]="GlobalPropertiesConstants.FORM_CONTROL_FIRST_SURNAME"
+                                class="col-sm-3 text-end control-label col-form-label">
                                 Primer Apellido
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"
+                                    [id]="GlobalPropertiesConstants.FORM_CONTROL_FIRST_SURNAME"
+                                    [formControlName]="GlobalPropertiesConstants.FORM_CONTROL_FIRST_SURNAME">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="" class="col-sm-3 text-end control-label col-form-label">
+                            <label [for]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_SURNAME"
+                                class="col-sm-3 text-end control-label col-form-label">
                                 Segundo Apellido
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"
+                                    [id]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_SURNAME"
+                                    [formControlName]="GlobalPropertiesConstants.FORM_CONTROL_SECOND_SURNAME">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="" class="col-sm-3 text-end control-label col-form-label">
+                            <label [for]="GlobalPropertiesConstants.FORM_CONTROL_EMAIL"
+                                class="col-sm-3 text-end control-label col-form-label">
                                 Correo
                             </label>
                             <div class="col-sm-9 input-group">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="text" class="form-control">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control"
+                                    [id]="GlobalPropertiesConstants.FORM_CONTROL_EMAIL"
+                                    [formControlName]="GlobalPropertiesConstants.FORM_CONTROL_EMAIL">
                             </div>
                         </div>
-
+                        <app-form-buttons></app-form-buttons>
                     </div>
                 </form>
             </div>

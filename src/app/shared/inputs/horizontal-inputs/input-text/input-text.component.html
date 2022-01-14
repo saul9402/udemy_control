@@ -1,0 +1,22 @@
+<div class="mb-3 row">
+  <!-- https://codepen.io/thewebtech/pen/grLQpp -->
+    <label [for]="controlName"
+        class="col-sm-3 text-end control-label col-form-label "
+        [ngClass]="{'control-label-required': isRequired}">
+        {{label}}
+      </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control"
+        [id]="controlName"
+        [formControl]="form.get(controlName)"
+        [ngClass]="evaluateIsValid()">
+      <!-- https://www.youtube.com/watch?v=dE-tgVsnan4 -->
+        <div [id]="ID_VALID_FEEDBACK" [class]="GlobalHTMLAndCSSConstants.CLASS_VALID_FEEDBACK">
+            ¡Esta perfecto!
+        </div>
+        <div [id]="ID_INVALID_FEEDBACK" [class]="GlobalHTMLAndCSSConstants.CLASS_INVALID_FEEDBACK">
+            {{ form.get(controlName).hasError('required') ? "Este campo es obligatorio" :"" }}
+            {{ form.get(controlName).hasError('minlength') ? "Debe contener al menos x caracteres" :"" }}
+        </div>
+    </div>
+</div>

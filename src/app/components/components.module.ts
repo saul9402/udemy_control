@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IncrementadorComponent } from './incrementador/incrementador.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DonaComponent } from './dona/dona.component';
 import { ChartsModule } from 'ng2-charts';
 import { AddSingleCourseComponent } from './dashboard/forms/add-single-course/add-single-course.component';
@@ -9,6 +9,7 @@ import { AddMultipleCoursesComponent } from './dashboard/forms/add-multiple-cour
 import { DashboardButtonsComponent } from './dashboard/dashboard-buttons/dashboard-buttons.component';
 import { PersonsButtonsComponent } from './persons/persons-buttons/persons-buttons.component';
 import { PersonFormComponent } from './persons/forms/person-form/person-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -31,7 +32,9 @@ import { PersonFormComponent } from './persons/forms/person-form/person-form.com
   imports: [
     CommonModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ComponentsModule { }
